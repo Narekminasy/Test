@@ -20,7 +20,7 @@ const server = http.createServer(async function (req, res) {
       usersEmitter.emit('register', req, res, query);
       return;
     }
-    
+
     if (method === 'GET' && url === '/profile') {
       usersEmitter.emit('profile', req, res, query);
       return;
@@ -39,6 +39,9 @@ const server = http.createServer(async function (req, res) {
     res.end(JSON.stringify({ message: 'Server error', error: e.message }));
   }
 });
+
+console.log(1);
+
 
 server.listen(PORT, function () {
   console.log(`Server listening on port ${PORT}`);
